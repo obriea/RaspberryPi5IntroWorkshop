@@ -2,13 +2,10 @@ import os
 from time import sleep
 
 # Song filename
-song_file_name = 'surprise.MP3'
+song_file_name = 'Mystery_Song.mp3'
 
 # Construct the command for playing the song
 song_command = f'mpg123 -q {song_file_name} &'
-
-# Pass a command to the operating system to announce the song name using Festival
-os.system(f"echo 'playing song {song_file_name}' | festival --tts")
 
 # Print files in the current directory (optional)
 print(os.system("ls"))
