@@ -101,25 +101,26 @@ Welcome to this **RaspberryPi5 Introduction Workshop**! This workshop is designe
 
 2. Write the Python script `button_input.py`:
    ```python
-   from gpiozero import Button
-   from time import sleep
-   
-   # Define buttons using Broadcom (BCM) numbering
-   start_button = Button(18, pull_up=True)  # GPIO18 corresponds to physical pin 12
-   stop_button = Button(23, pull_up=True)   # GPIO23 corresponds to physical pin 16
-   
-   end = False
-   
-   while not end:
-      if start_button.is_pressed and stop_button.is_pressed:
+      from gpiozero import Button
+      from time import sleep
+      
+      # Define buttons using Broadcom (BCM) numbering
+      start_button = Button(21, pull_up=True, bounce_time = 0.05) 
+      stop_button = Button(20, pull_up=True, bounce_time = 0.05)   
+      
+      def pressed():
+       if start_button.is_pressed and stop_button.is_pressed:
            print('Make up your mind!')
-           end = True
-       if start_button.is_pressed:
+       elif start_button.is_pressed:
            print('Start was pressed')
-           sleep(0.5)
-       if stop_button.is_pressed:
+       elif stop_button.is_pressed:
            print('Stop was pressed')
-           sleep(0.5)
+      
+      start_button.when_pressed = pressed
+      stop_button.when_pressed = pressed
+      print("Ready.... Press buttons!")
+      while True:
+       sleep(1)
    ```
 3. Run the script:
    ```bash
@@ -128,49 +129,7 @@ Welcome to this **RaspberryPi5 Introduction Workshop**! This workshop is designe
 
 ---
 
-## 🎵 Module 3: Audio Playback with Raspberry Pi
 
-### Setup Audio
-1. Install required packages:
-   ```bash
-   sudo apt-get update
-   sudo apt-get install alsa-utils mpg123
-   ```
-2. download Mystery_Song.mp3
-
-   
-### Play an MP3 File
-1. Create a Python script to play audio:
-   ```python
-   import os
-   from time import sleep
-   
-   # Song filename
-   song_file_name = 'Mystery_Song.mp3'
-   
-   # Construct the command for playing the song
-   song_command = f'mpg123 -q {song_file_name} &'
-   
-   # Print files in the current directory (optional)
-   print(os.system("ls"))
-   
-   # Play the song
-   os.system(song_command)
-   print(f"Now playing: {song_file_name}")
-   
-   # Wait while the song plays (adjust sleep duration as needed)
-   sleep(30)
-   
-   # Stop the song playback by killing the mpg123 process
-   os.system('pkill mpg123')
-   ```
-2. Place your MP3 file in the same directory as the script and run it:
-   ```bash
-   python3 play_audio.py
-   ```
-
----
----
 
 ## 🔧 Additional Commands
 
