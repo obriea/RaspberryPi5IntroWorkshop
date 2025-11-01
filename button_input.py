@@ -2,18 +2,19 @@ from gpiozero import Button
 from time import sleep
 
 # Define buttons using Broadcom (BCM) numbering
-start_button = Button(18, pull_up=True)  # GPIO18 corresponds to physical pin 12
-stop_button = Button(23, pull_up=True)   # GPIO23 corresponds to physical pin 16
+start_button = Button(21, pull_up=True, bounce_time = 0.05) 
+stop_button = Button(20, pull_up=True, bounce_time = 0.05)   
 
-end = False
-
-while not end:
-    if start_button.is_pressed:
-        print('Start was pressed')
-        sleep(0.5)
-    if stop_button.is_pressed:
-        print('Stop was pressed')
-        sleep(0.5)
+def pressed():
     if start_button.is_pressed and stop_button.is_pressed:
         print('Make up your mind!')
-        end = True
+    elif start_button.is_pressed:
+        print('Start was pressed')
+    elif stop_button.is_pressed:
+        print('Stop was pressed')
+
+start_button.when_pressed = pressed
+stop_button.when_pressed = pressed
+print("Ready.... Press buttons!")
+while True:
+    sleep(1)
