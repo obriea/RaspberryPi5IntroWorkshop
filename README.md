@@ -6,7 +6,7 @@ Welcome to this **RaspberryPi5 Introduction Workshop**! This workshop is designe
 
 ## 🚀 Getting Started
 
-### Step 1: Setting Up Your Raspberry Pi 5
+### Step 1-1: Setting Up Your Raspberry Pi 5 if you have a Monitor
 1. Ensure you have the following items:
    - Raspberry Pi 5 board
    - MicroSD card (16GB or larger, with Raspberry Pi OS pre-installed)
@@ -19,6 +19,12 @@ Welcome to this **RaspberryPi5 Introduction Workshop**! This workshop is designe
 5. Follow the on-screen instructions to complete the initial setup.
 6. We will be using Thonny IDE, (Click on the top left icon representing a raspberry > Programming > Thonny Python IDE)
 ![Open ThonnyIDE](thonny_ide_start.png)
+
+### Step 1-2: Setting Up Your Raspberry Pi 5 Without a Monitor
+
+[📄 Getting Started Without a Monitor](Raspberry_Pi_Getting_Started_Guide_v2.pdf)
+
+This PDF is from Thode Makerspace and includes all the instructions needed to connect to the Raspberry Pi on campus and access it from your laptop.
 
 ---
 
