@@ -243,10 +243,10 @@ This PDF is from Thode Makerspace and includes all the instructions needed to co
 
                    if r > TILT_DEG:
                        expiry["R"] = now + HOLD_TIME
-                       triggered.append("RIGHT")
+                       triggered.append("LEFT")
                    elif r < -TILT_DEG:
                        expiry["L"] = now + HOLD_TIME
-                       triggered.append("LEFT")
+                       triggered.append("RIGHT")
 
                    led_forward.on() if now < expiry["F"] else led_forward.off()
                    led_backward.on() if now < expiry["B"] else led_backward.off()
