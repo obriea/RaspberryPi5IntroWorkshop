@@ -138,17 +138,8 @@ This PDF is from Thode Makerspace and includes all the instructions needed to co
 
 ### Example 1: Controlling LEDs with Tilt (IMU)
 
-1. Build the circuit:
-   - Connect the positive leg of each LED to a GPIO pin using a **1kΩ resistor**.
-   - Connect the LED's ground leg to any GND pin on the Raspberry Pi.
-   - Pin reference:  
-     🔗 [Raspberry Pi GPIO Pinout](https://pinout.xyz/)
-   - Resistor color code reference:  
-     🔗 [1kΩ resistor color code](https://sjaeng.wordpress.com/wp-content/uploads/2010/10/resistor-color-codes1.jpg?w=584)
 
-   ![Blink Circuit](Blink.png)
-
-2. Create the Python file `IMU.py` and paste this code:
+1. Create the Python file `IMU.py` and paste this code:
 
    ```python
    #!/usr/bin/env python3
